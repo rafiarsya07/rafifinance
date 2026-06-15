@@ -1,4 +1,4 @@
-# RafiFinance 💜
+# RafiFinance
 
 A complete personal finance tracker built as a **single HTML file** — no npm, no build step, no server. Open it in a browser and it just works. Available as a PWA installable on Android and iOS.
 
