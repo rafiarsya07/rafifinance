@@ -7,17 +7,10 @@
 <meta name="mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-title" content="RafiFinance"/>
 <meta name="theme-color" content="#080810"/>
-<link rel="manifest" href="data:application/json,{
-  %22name%22:%22RafiFinance%22,
-  %22short_name%22:%22RafiFinance%22,
-  %22description%22:%22Personal finance tracker - 100%25 lokal%22,
-  %22start_url%22:%22.%22,
-  %22display%22:%22standalone%22,
-  %22background_color%22:%22%23080810%22,
-  %22theme_color%22:%22%23080810%22,
-  %22orientation%22:%22portrait%22,
-  %22icons%22:[{%22src%22:%22data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%236c5ce7'/%3E%3Ctext x='96' y='130' text-anchor='middle' font-family='monospace' font-size='90' font-weight='900' fill='white'%3ERp%3C/text%3E%3C/svg%3E%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22},{%22src%22:%22data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='100' fill='%236c5ce7'/%3E%3Ctext x='256' y='340' text-anchor='middle' font-family='monospace' font-size='240' font-weight='900' fill='white'%3ERp%3C/text%3E%3C/svg%3E%22,%22sizes%22:%22512x512%22,%22type%22:%22image/svg+xml%22}]
-}"/>
+<link rel="manifest" href="manifest.json"/>
+<link rel="apple-touch-icon" href="icon-192.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"/>
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png"/>
 <title>RafiFinance</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -1796,9 +1789,7 @@ function showInstallBtn(){
 function hideInstallBtn(){const b=document.getElementById('pwa-btn');if(b)b.remove();}
 // Service Worker for offline
 if('serviceWorker' in navigator){
-  const sw=`const C='rfv4-1';self.addEventListener('install',e=>{self.skipWaiting();});self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))));self.clients.claim();});self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.open(C).then(cache=>cache.match(e.request).then(r=>{const fetch_=fetch(e.request).then(res=>{cache.put(e.request,res.clone());return res;}).catch(()=>r);return r||fetch_;})));});`;
-  const blob=new Blob([sw],{type:'application/javascript'});
-  navigator.serviceWorker.register(URL.createObjectURL(blob)).catch(()=>{});
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
 }
 </script>
 </body>
