@@ -2,3 +2,8 @@ android.keystore
 app-release-signed.apk
 app-release-bundle.aab
 app/
+.gradle/
+build/
+app-release-unsigned-aligned.apk
+app-release-signed.apk.idsig
+manifest-checksum.txt
