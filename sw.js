@@ -1,4 +1,4 @@
-const CACHE = 'rfv4-2';
+const CACHE = 'rfv4-3';
 const ASSETS = ['/'];
 
 self.addEventListener('install', e => {

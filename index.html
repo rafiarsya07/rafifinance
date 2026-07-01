@@ -811,7 +811,7 @@ const CAT_CLR={
 const RTYPE_ICO={payment:'credit-card',saving:'piggy-bank',review:'bar-chart-2',goal:'target',other:'bookmark'};
 const GOAL_CATS={gadget:'smartphone',travel:'plane',vehicle:'car',home:'home',fashion:'shopping-bag',entertainment:'gamepad-2',health:'heart-pulse',education:'book-open',other:'target'};
 
-let cM=5,cY=2026,curTT='expense',curRT='expense',gadd_id=null;
+let cM=new Date().getMonth(),cY=new Date().getFullYear(),curTT='expense',curRT='expense',gadd_id=null;
 
 let D=JSON.parse(localStorage.getItem('rfv4')||'null')||{
   transactions:[],goals:[],reminders:[],budgets:{},recurring:[],meta:{since:new Date().toISOString()}
